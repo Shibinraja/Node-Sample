@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="#" />
+</head>
+
+<body>
+    <form onsubmit = "sendAllData() ; return false ">
+        <label name = "">Name:</label>
+        <input type = "text" id = "username" required >
+        <label name = "">Password:</label>
+        <input type = "password" id = "secretcode" required >
+        <label name = "">Email:</label>
+        <input type = "email" id = "mail">
+
+        <input type = "Submit" value = "submit">
+
+    </form>
+
+    <script>
+        function sendAllData(){
+            var Name = document.getElementById("username").value
+            var Password = document.getElementById("secretcode").value
+            var Email = document.getElementById("mail").value
+
+            var Json = {Name , Password , Email}
+            console.log(Json)
+
+            
+            //Creating a xhr object
+            let xhr = new XMLHttpRequest();
+
+            //To open a connection
+            xhr.open("POST", "http://localhost:7050/haveFun")
+
+            //Set the request  header
+            xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+
+            //Convert the Json Data to String
+            xhr.send(JSON.stringify(Json))
+
+            //Create a state change callback
+        //     xhr.onreadystatechange = () => {
+        //         if (xhr.readystate === 4 && xhr.status ===200){
+            
+        //     //Receive it from Server Side
+        //     var resonseD = document.getElementById("response")
+        //     var Data_Receive = xhr.responseText;
+        //     xhr.responseText = responseText.innerHTML} 
+
+        //     console.log(Data_Receive)
+        //     }
+        // }
+            
+        };
+
+
+    </script>
+
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    
+
+    
+    <script>
+        let xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function  
+        () {
+            if (this.readyState === 4 && this.status === 200) {
+                console.log(this.responseText);
+                details = this.responseText
+
+                document.body.innerHTML = details;
+                
+                // var table = document.createElement('table')
+                // var td1 = document.createElement('td')           
+                // var tr1 = document.createElement("tr")
+                // var thead = document.createElement("heading")           
+                
+                // td1.appendChild(details);
+                // tr1.appendChild(td1);
+                // thead.appendChild(tr1);
+
+                // table.appendChild(thead);
+
+                // document.body.innerHTML(table);
+            }
+
+
+        }
+
+
+
+        xhr.open("GET", "http://localhost:7050/hadDetails", true);
+
+        xhr.send();
+       
+
+    </script>
+</body>
+
+</html>
